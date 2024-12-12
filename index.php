@@ -1,10 +1,11 @@
 <?php
-	if (!empty($_SERVER['HTTPS']) && ('on' == $_SERVER['HTTPS'])) {
-		$uri = 'https://';
-	} else {
-		$uri = 'http://';
-	}
-	$uri .= $_SERVER['HTTP_HOST'];
-	header('Location: '.$uri.'/data-santri/style/');
-	exit;
-?>
+
+if(!isset($_SESSION['login'])) {
+    header('location: ./auth/login.php');
+    exit;
+}
+
+if(isset($_SESSION['login'])) {
+    header('location: ./style/index.php');
+    exit;
+}

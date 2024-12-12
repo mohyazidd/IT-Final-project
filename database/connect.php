@@ -1,3 +1,3 @@
 <?php
-$conn = mysqli_connect("localhost", "root", "", "e-reports"); // Membuat koneksi ke mysql
+$conn = mysqli_connect("localhost", "root", "", "data-santri"); // Membuat koneksi ke mysql
 ?> 

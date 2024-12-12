@@ -2,13 +2,18 @@
 session_start();
 include('../database/connect.php');
 
+if(!isset($_SESSION['login'])) {
+    header('location: ../index.php');
+    exit;
+}
+
 if(isset($_GET['submit'])) {
     $userID = $_GET['user_id'];
     $judul = $_GET['judul'];
     $isi = $_GET['isi'];
 
     $query = mysqli_query($conn, 
-        "INSERT INTO pengaduan (user_id, judul, isi) 
+        "INSERT INTO absent (user_id, judul, isi) 
         VALUES ('$userID', '$judul', '$isi')"
     );
 
@@ -160,9 +165,9 @@ if(isset($_GET['submit'])) {
                         <label for="judul" class="form-label">Kategori</label>
                         <select class="form-select" name="judul" id="judul" required>
                             <option selected disabled>Pilih kategori</option>
-                            <option value="Public Service">Hadir</option>
-                            <option value="Infrastructure">Izin</option>
-                            <option value="Health">Alpha</option>
+                            <option value="Hadir">Hadir</option>
+                            <option value="Izin">Izin</option>
+                            <option value="Alpha">Alpha</option>
                         </select>
                     </div>
                     <div class="mb-3">

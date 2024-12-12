@@ -1,5 +1,16 @@
 <?php
+// include('connect.php');
+include('../auth/function.php');
 session_start();
+
+if(!isset($_SESSION['login'])) {
+    header('location: ../index.php');
+    exit;
+}
+
+if(isset($_POST['register'])) {
+    register($_POST);
+}
 ?>
 
 <!DOCTYPE html>

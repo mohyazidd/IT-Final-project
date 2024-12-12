@@ -1,10 +1,17 @@
 <?php
 // include('connect.php');
+session_start();
 include('function.php');
+
+if(isset($_SESSION['login'])) {
+    header('location: ../style/user.php');
+    exit;
+}
 
 if(isset($_POST['register'])) {
     register($_POST);
 }
+
 ?>
 
 <!DOCTYPE html>

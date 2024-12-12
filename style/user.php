@@ -1,7 +1,17 @@
 <?php
+include('../database/connect.php');
+include('../auth/function.php');
 session_start();
-require('../database/connect.php');
-$query = mysqli_query($conn,"SELECT * FROM pengaduan");
+
+if(!isset($_SESSION['login'])) {
+    header('location: ../index.php');
+    exit;
+}
+if(isset($_POST['register'])) {
+    register($_POST);
+}
+
+$query = mysqli_query($conn,"SELECT * FROM absent");
 $i = 1;
 ?>
 

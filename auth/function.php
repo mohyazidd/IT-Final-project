@@ -26,8 +26,8 @@ function register($request) {
     }
 
     // AMBIL PW LALU SIMPAN DI VARIABLE
-    $pw = mysqli_real_escape_string($conn, $request['pw']);
-    $pw2 = mysqli_real_escape_string($conn, $request['pw2']);
+    $pw = mysqli_real_escape_string($conn, $request['password']);
+    $pw2 = mysqli_real_escape_string($conn, $request['confirm_password']);
 
     // CEK PW1 === PW2 ?
     if ($pw !== $pw2) {
@@ -55,7 +55,7 @@ function login($request) {
     global $conn;
     // AMBIL EMAIL & PASSWORD LALU SIMPAN DI VARIABLE
     $email = trim($request['email']);
-    $pw = $request['pw'];
+    $pw = $request['password'];
 
     // QUERY EMAIL YANG SAM DENGAN $email
     $result = mysqli_query($conn, "SELECT * FROM users WHERE email = '$email'");

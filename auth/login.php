@@ -1,12 +1,13 @@
 <?php
-session_start(); // -> Harus ditambahkan ketika menggunakan session
+// include('connect.php');
+include('function.php');
+session_start();
 
 // Redirect user yang sudah login ke index.php
 if(isset($_SESSION['login'])) {
-    header('location: ../index.php');
+    header('location: ../style/user.php');
     exit;
 }
-include('function.php');
 
 if(isset($_POST['login'])) {
     login($_POST);
