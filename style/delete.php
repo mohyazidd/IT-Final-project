@@ -13,7 +13,7 @@ if(isset($_GET['id']) && !empty($_GET['id'])) {
     $id = $_GET['id'];
 
     // Hapus data berdasarkan 
-    $result = mysqli_query($conn, "DELETE FROM pengaduan WHERE id = $id");
+    $result = mysqli_query($conn, "DELETE FROM absent WHERE id = $id");
 
     if($result) {
         echo "<script>
